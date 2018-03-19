@@ -42,6 +42,7 @@ public class UserDAOTest {
 	public void init() {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		jdbcTemplate.execute("DELETE FROM offer");
+		jdbcTemplate.execute("DELETE FROM messages");
 		jdbcTemplate.execute("DELETE FROM users");
 	}
 	
