@@ -58,7 +58,7 @@ $(document).ready(onLoad);
 			</tr>
 			<tr>
 				<td class="label">Name:</td>
-				<td><sf:input class="control" type="	" name="name"
+				<td><sf:input class="control" type="text" name="name"
 						path="name" placeholder="Enter name" />
 					<div class="error">
 						<sf:errors path="name"></sf:errors>

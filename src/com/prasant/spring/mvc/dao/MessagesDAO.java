@@ -35,6 +35,7 @@ public class MessagesDAO {
 	}
 	
 	public void saveOrUpdate(Message message) {
+		System.out.println("saveOrUpdate() -> " + message);
 		session().saveOrUpdate(message);
 	}
 	

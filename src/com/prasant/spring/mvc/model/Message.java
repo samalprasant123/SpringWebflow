@@ -1,30 +1,46 @@
 package com.prasant.spring.mvc.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import com.prasant.spring.mvc.validator.ValidEmail;
 
 @Entity
 @Table(name="messages")
-public class Message {
+public class Message implements Serializable {
 	
+	private static final long serialVersionUID = 7215120724676568857L;
+
 	@Id
 	@GeneratedValue
 	private int id;
 	
+	@NotBlank
+	@Size(min=10, max=100)
 	private String subject;
 	
+	@NotBlank
+	@Size(min=10, max=400)
 	private String content;
 	
+	@NotBlank
+	@Pattern(regexp="[a-zA-Z ]+")
 	private String name;
 	
+	@NotBlank
+	@ValidEmail
 	private String email;
 	
 	private String username;
 	
 	public Message() {
-		
 	}
 
 	public Message(String subject, String content, String name, String email, String username) {

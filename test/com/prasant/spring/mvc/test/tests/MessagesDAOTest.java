@@ -96,6 +96,9 @@ public class MessagesDAOTest {
 		List<Message> messages2 = messagesDAO.getMessages("testuser");
 		assertEquals("Should be 1 message", 1, messages2.size());
 		assertEquals("Retrieved should be equal to created", message2, messages2.get(0));
+		messagesDAO.delete(messages2.get(0).getId());
+		List<Message> messages3 = messagesDAO.getMessages("testuser");
+		assertEquals("Should be 0 message", 0, messages3.size());
 	}
 	
 }

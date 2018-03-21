@@ -9,7 +9,7 @@
 		<thead>
 			<tr>
 				<th class="offerDisplayTh">NAME</th>
-				<th class="offerDisplayTh">EMAIL</th>
+				<th class="offerDisplayTh">CONTACT</th>
 				<th class="offerDisplayTh">TEXT</th>
 			</tr>
 		</thead>
@@ -17,7 +17,9 @@
 			<c:forEach var="offer" items="${ offers }">
 				<tr>
 					<td class="offerDisplayTd">${offer.user.name}</td>
-					<td class="offerDisplayTd">${offer.user.email}</td>
+					<td class="offerDisplayTd">
+						<a href="<c:url value='/message?uid=${offer.username}' />">Contact</a>
+					</td>
 					<td class="offerDisplayTd">${offer.text}</td>
 				</tr>
 			</c:forEach>
