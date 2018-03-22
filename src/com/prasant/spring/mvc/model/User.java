@@ -1,5 +1,7 @@
 package com.prasant.spring.mvc.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,7 +16,9 @@ import com.prasant.spring.mvc.validator.ValidEmail;
 
 @Entity
 @Table(name="users")
-public class User {
+public class User implements Serializable {
+
+	private static final long serialVersionUID = 879055956736793747L;
 
 	@Id
 	@NotBlank(groups= {PersistenceValidationGroup.class, FormValidationGroup.class})

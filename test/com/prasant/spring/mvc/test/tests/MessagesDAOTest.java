@@ -44,7 +44,7 @@ public class MessagesDAOTest {
 	
 	private User user = new User("psamal", "psamal@email.com", "password", true, "ROLE_ADMIN", "Prasant Samal");
 	private User user1 = new User("grout", "grout@email.com", "password", true, "ROLE_USER", "Gayatree Rout");
-	private User user2 = new User("testuser", "testuser@email.com", "password", true, "ROLE_ADMIN", "Test User");
+	private User user2 = new User("testuser", "testuser@email.com", "password", true, "ROLE_USER", "Test User");
 	
 	private Offer offer1 = new Offer(user1, "I write awesome contents.");
 	private Offer offer2 = new Offer(user2, "This is a test offer.");

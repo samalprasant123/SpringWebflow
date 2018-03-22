@@ -35,16 +35,18 @@ public class UserDAO {
 		session().save(user);
 	}
 
-	public boolean getUser(String username) {
+	public boolean userExists(String username) {
+		return getUser(username) != null;
+	}
+	
+	public User getUser(String username) {
 		CriteriaBuilder criteriaBuilder = session().getCriteriaBuilder();
 		CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
 		Root<User> userRoot = criteriaQuery.from(User.class);
 		criteriaQuery.select(userRoot).where(criteriaBuilder.equal(userRoot.get("username"), username));
-		
 		Query<User> query = session().createQuery(criteriaQuery);
-		User users = query.uniqueResult();
-		//User users = query.getSingleResult();
-		return users != null;
+		User user = query.uniqueResult();
+		return user;
 	}
 
 	@SuppressWarnings("unchecked")

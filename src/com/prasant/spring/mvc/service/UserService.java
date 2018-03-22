@@ -25,7 +25,7 @@ public class UserService {
 	}
 
 	public boolean userExists(String username) {
-		return userDao.getUser(username);
+		return userDao.userExists(username);
 	}
 
 	@Secured("ROLE_ADMIN")
@@ -35,6 +35,10 @@ public class UserService {
 	
 	public void sendMessage(Message message) {
 		messagesDAO.saveOrUpdate(message);
+	}
+	
+	public User getUser(String username) {
+		return userDao.getUser(username);
 	}
 
 }

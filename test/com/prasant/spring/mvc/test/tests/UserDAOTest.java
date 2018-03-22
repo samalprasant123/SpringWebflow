@@ -62,8 +62,8 @@ public class UserDAOTest {
 	@Test
 	public void getUser() {
 		userDao.create(user2);
-		assertTrue("User psamal exists", userDao.getUser("psamal"));
-		assertFalse("User doenst psamal1 exists", userDao.getUser("psamal1"));
+		assertTrue("User psamal exists", userDao.userExists("psamal"));
+		assertFalse("User doenst psamal1 exists", userDao.userExists("psamal1"));
 		List<User> users = userDao.getUsers();
 		assertEquals("Created user and 	retrieved User should be identical", user2, users.get(0));
 	}
